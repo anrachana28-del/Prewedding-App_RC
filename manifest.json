@@ -1,7 +1,7 @@
 {
-  "name": "Prewedding-App_RC",
+  "name": "Wedding",
   "short_name": "Wedding",
-  "start_url": "/wedding-app/",
+  "start_url": "/Prewedding-App_RC/",
   "scope": "/wedding-app/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -19,3 +19,4 @@
     }
   ]
 }
+
