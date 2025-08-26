@@ -1,5 +1,5 @@
 {
-  "name": "Wedding App",
+  "name": "Prewedding-App_RC",
   "short_name": "Wedding",
   "start_url": "./",
   "display": "standalone",
@@ -18,3 +18,4 @@
     }
   ]
 }
+
