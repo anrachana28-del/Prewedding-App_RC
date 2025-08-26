@@ -2,7 +2,7 @@
   "name": "Wedding",
   "short_name": "Wedding",
   "start_url": "/Prewedding-App_RC/",
-  "scope": "/wedding-app/",
+  "scope": "/Prewedding-App_RC/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ff4da6",
@@ -19,5 +19,6 @@
     }
   ]
 }
+
 
 
