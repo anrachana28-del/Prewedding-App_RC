@@ -118,11 +118,9 @@
 
   <!-- iOS Install Hint Popup -->
   <div id="iosHint">
-     
     <h3>📲 ដំឡើង App លើ iOS</h3>
     <p>👉 ចុច <b>Share</b> បន្ទាប់មក <b>Add to Home Screen</b></p>
-    <img src="image2.PNG" alt="How to Add to Home Screen">
-    
+    <img src="icons/ios-add.png" alt="How to Add to Home Screen">
     <br>
     <button onclick="closeIOSHint()">បិទ</button>
   </div>
@@ -176,7 +174,7 @@
           installBtn.innerText = "✅ Installed";
         }
       } else {
-        alert("អ្នកមាន App រួចហើយ (ចំណាំ បើក Link លើ Chrome)");
+        alert("Install not available on this browser ❌");
       }
     });
 
@@ -191,14 +189,14 @@
 
     // Open Map function
     function openMap() {
-      window.location.href = "https://maps.app.goo.gl/xxxx"; // 🔑 Change to your map link
+      window.location.href = "https://maps.app.goo.gl/xxxx"; // 🔑 ដាក់ Google Maps Link
     }
   </script>
 
   <!-- Service Worker -->
   <script>
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js").then(() => {
+      navigator.serviceWorker.register("./sw.js").then(() => {
         console.log("Service Worker Registered ✅");
       });
     }
