@@ -1,8 +1,21 @@
 self.addEventListener("install", (event) => {
-  console.log("SW installed");
-  self.skipWaiting();
+  event.waitUntil(
+    caches.open("wedding-cache").then((cache) => {
+      return cache.addAll([
+        "./",
+        "./index.html",
+        "./manifest.json",
+        "./icons/icon-192.png",
+        "./icons/icon-512.png"
+      ]);
+    })
+  );
 });
 
-self.addEventListener("activate", (event) => {
-  console.log("SW activated ✅");
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((resp) => {
+      return resp || fetch(event.request);
+    })
+  );
 });
