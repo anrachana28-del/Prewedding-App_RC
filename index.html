@@ -1,290 +1,205 @@
 <!DOCTYPE html>
 <html lang="km">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>💖 Pink Wedding App</title>
-
-<!-- PWA -->
-<link rel="manifest" href="manifest.json">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="pink">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
-
-<style>
-/* Base */
-body {
-  margin:0; font-family:-apple-system,'Battambang',"Khmer OS Battambang","Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;
-  background: linear-gradient(135deg,#ffe6f0,#fff5fa);
-  overflow-x:hidden; display:flex; flex-direction:column; height:100vh; position:relative;
-}
-
-/* Floating hearts background */
-.heart { position:absolute; width:18px; height:18px; background:pink; transform:rotate(45deg);
-  border-radius:2px; opacity:0.7; animation: floatUp 10s linear infinite; pointer-events:none; }
-.heart::before, .heart::after { content:""; position:absolute; width:18px; height:18px; background:pink; border-radius:50%; }
-.heart::before { top:-9px; left:0; }
-.heart::after { left:-9px; top:0; }
-
-@keyframes floatUp {
-  0% { transform:translateY(100vh) scale(0.5) rotate(45deg); opacity:0; }
-  30% { opacity:1; }
-  100% { transform:translateY(-10vh) scale(1.2) rotate(45deg); opacity:0; }
-}
-
-/* Header pinned */
-.app-header { 
-  position: fixed; top: 0; left: 0; width: 100%;
-  background:#ff4da6; color:white; padding:15px; text-align:center; 
-  font-size:20px; font-weight:bold; 
-  box-shadow:0 2px 5px rgba(0,0,0,0.1); 
-  border-bottom-left-radius:15px; border-bottom-right-radius:15px; 
-  z-index:1000;
-}
-
-/* Content container */
-.app-container { 
-  flex:1; padding:20px; padding-top:70px; overflow-y:auto; z-index:2; 
-}
-
-/* Cards */
-.card { background:white; border-radius:20px; box-shadow:0 5px 15px rgba(0,0,0,0.1); padding:20px; margin-bottom:20px; transition: transform 0.2s ease; text-align:center; }
-.card:hover { transform:translateY(-5px); }
-.card h2 { margin:10px 0 5px 0; color:#ff4da6; }
-.card p { color:#444; line-height:1.5; }
-.card img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:10px; border:3px solid #ffb6c1; }
-
-/* Buttons */
-.btn { display:inline-block; padding:12px 20px; background:#ff4da6; color:white; border:none; border-radius:12px; font-size:16px; cursor:pointer; transition:0.3s;}
-.btn:hover { background:#e63e90; }
-
-/* Bottom nav */
-.bottom-nav {
-  position: fixed; bottom:0; left:0; width:100%;
-  display:flex; justify-content: space-around;
-  background: #fff; padding:12px 0; border-top:1px solid #eee;
-  box-shadow:0 -2px 8px rgba(0,0,0,0.1); z-index:999;
-}
-.nav-btn {
-  text-align:center; font-size:16px; color:#555; cursor:pointer; transition:0.3s;
-  padding:6px 12px; border-radius:12px; position:relative;
-}
-.nav-btn.active { color:#ff4da6; font-weight:bold; text-shadow:0 0 8px rgba(255,77,166,0.7); }
-
-/* Hover hearts on nav */
-.nav-btn:hover::after {
-  content:"💖"; position:absolute; top:-20px; left:50%; transform:translateX(-50%) scale(1); animation: hoverHeart 0.8s ease forwards;
-}
-@keyframes hoverHeart {
-  0% { opacity:0; transform:translateX(-50%) translateY(0) scale(0.5);}
-  50% { opacity:1; transform:translateX(-50%) translateY(-10px) scale(1.2);}
-  100% { opacity:0; transform:translateX(-50%) translateY(-20px) scale(1);}
-}
-
-/* Install Button floating (extra) */
-#installBtnFloat { position:fixed; bottom:100px; right:20px; z-index:1000; display:none; }
-
-/* Views */
-.view { display:none; }
-.view.active { display:block; }
-
-/* Map iframe */
-iframe { width:100%; height:300px; border-radius:15px; border:0; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wedding App</title>
+  <meta name="theme-color" content="#ff4da6" />
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    body {
+      font-family: "Noto Sans Khmer", Arial, sans-serif;
+      margin: 0;
+      background: #fff0f6;
+      text-align: center;
+    }
+    .view { display: none; padding: 20px; }
+    .view.active { display: block; }
+    .card {
+      background: #fff;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 16px;
+      max-width: 400px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .btn {
+      display: inline-block;
+      background: #ff4da6;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 20px;
+      margin-top: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    /* Loader */
+    #loader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #ff4da6;
+      color: white;
+      font-size: 22px;
+    }
+    .spinner {
+      border: 6px solid rgba(255,255,255,0.3);
+      border-top: 6px solid #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin: 20px auto;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    /* iOS Popup Hint */
+    #iosHint {
+      position: fixed;
+      left: 0; right: 0; bottom: -100%;
+      background: #fff;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.2);
+      padding: 20px;
+      transition: bottom 0.3s ease-in-out;
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+      z-index: 999;
+    }
+    #iosHint.show { bottom: 0; }
+    #iosHint h3 { margin-top: 0; }
+    #iosHint img {
+      width: 80%;
+      max-width: 280px;
+      margin: 10px 0;
+    }
+    #iosHint button {
+      margin-top: 10px;
+      background: #ff4da6;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-
-<div class="app-header">💖 Pink Wedding App</div>
-
-<div class="app-container">
+  <!-- Loader -->
+  <div id="loader">
+    <h2>💖 Wedding App</h2>
+    <div class="spinner"></div>
+    <p>កំពុងផ្ទុក...</p>
+  </div>
 
   <!-- Get Started Page -->
   <div id="getstart" class="view">
     <div class="card">
-      <h2>សូមស្វាគមន៍!</h2>
-      <p>ចុច "Get Started" ដើម្បីចូល App។ Android/PC អាច Install App បានតាមប៊ូតុងខាងក្រោម។</p>
-
-      <!-- Start -->
-      <button class="btn" id="getStartBtn" aria-label="Start the app">🚀 Get Started</button>
-
-      <!-- Install App (Android/Desktop) -->
-      <button class="btn" id="installBtn" style="display:none; margin-top:10px;" aria-label="Install the app">
-        📲 Install App
-      </button>
-
-      <!-- iOS Add to Home Screen Guide -->
-      <div id="iosGuide" style="display:none; margin-top:15px; text-align:left; font-size:14px; color:#555;">
-        <p>📱 <b>iPhone/iPad</b>៖ ដើម្បីដំឡើង App ទៅលើ Home Screen សូមចុច 
-        <span style="color:#ff4da6;">Share</span> (ប៊ូតុង ⬆️ ខាងក្រោម) → <b>Add to Home Screen</b>.</p>
-        <!-- អ្នកអាចប្ដូររូបនេះដោយរូបណែនាំរបស់អ្នក -->
-        <img src="icons/ios-add.png" alt="iOS Add to Home Screen" style="width:100%;max-width:280px;border-radius:10px;margin-top:8px;">
-      </div>
+      <h2>សូមស្វាគមន៍ 💖</h2>
+      <p>ចុច Download App ដើម្បីដំឡើង Wedding App</p>
+      <button class="btn" id="installAppBtn">📲 Download App</button>
     </div>
   </div>
 
-  <!-- Home Page -->
+  <!-- Installed Home Page -->
   <div id="home" class="view">
     <div class="card">
-      <h2>សូមស្វាគមន៍!</h2>
-      <p>នេះជាគំរូ App UI PWA style iOS + Android។ ចុច💖 នៅលើ screen ដើម្បីបន្ថែម hearts effect។</p>
-      <button class="btn">ចាប់ផ្តើម</button>
+      <h2>🎉 Mao Connect</h2>
+      <p>ចុចខាងក្រោមដើម្បីបើក Map</p>
+      <button class="btn" onclick="openMap()">🗺️ Home Map Connect</button>
     </div>
   </div>
 
-  <!-- Map Page -->
-  <div id="map" class="view">
-    <h2 style="text-align:center; color:#c71585;">ទីតាំងពិធីមង្គលការ</h2>
-    <iframe id="mapFrame" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3905.5730312067944!2d105.375636!3d11.795083999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDQ3JzQyLjMiTiAxMDXCsDIyJzMyLjMiRQ!5e0!3m2!1sen!2skh!4v1755935216345!5m2!1sen!2skh" allowfullscreen="" loading="lazy"></iframe>
-    <div style="text-align:center; margin-top:10px;">
-      <button class="btn" onclick="copyMapLink()">📋 Copy Link</button>
-      <button class="btn" onclick="shareMapLink()">🔗 Share Link</button>
-    </div>
-    <div class="card">
-      <p>ភូមិ ព្រៃលាន ឃុំ រំលេច ស្រុក ស៊ីធរកណ្តាល ខេត្តព្រៃវែង</p>
-    </div>
+  <!-- iOS Install Hint Popup -->
+  <div id="iosHint">
+    <h3>📲 ដំឡើង App លើ iOS</h3>
+    <p>👉 ចុច <b>Share</b> បន្ទាប់មក <b>Add to Home Screen</b></p>
+    <img src="icons/ios-add.png" alt="How to Add to Home Screen">
+    <br>
+    <button onclick="closeIOSHint()">បិទ</button>
   </div>
 
-  <!-- Contacts Page -->
-  <div id="son" class="view">
-    <div class="card">
-      <img src="https://via.placeholder.com/120?text=Son1" alt="កូនប្រុស ១">
-      <h2>កូនប្រុស</h2>
-      <p>លេខទូរស័ព្ធ</p>
-    </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/120?text=Daughter1" alt="កូនស្រី ១">
-      <h2>កូនស្រី</h2>
-      <p>លេខទូរស័ព្ធ</p>
-    </div>
-  </div>
+  <script>
+    let deferredPrompt;
+    const installBtn = document.getElementById("installAppBtn");
+    const iosHint = document.getElementById("iosHint");
 
-</div>
-
-<!-- Bottom nav -->
-<div class="bottom-nav" id="bottomNav">
-  <div class="nav-btn active" onclick="showPage('home', this)" aria-label="Home">🏠 Home</div>
-  <div class="nav-btn" onclick="showPage('map', this)" aria-label="Map">🗺️ Map</div>
-  <div class="nav-btn" onclick="showPage('son', this)" aria-label="Contacts">ទំនាក់ទំនង</div>
-</div>
-
-<!-- Optional floating install (Android/PC) -->
-<button id="installBtnFloat" class="btn" aria-label="Install the app (floating)">📲 Install App</button>
-
-<script>
-/* ----------------- Helpers: platform detection ----------------- */
-function isIos() {
-  return /iphone|ipad|ipod/i.test(window.navigator.userAgent);
-}
-function isInStandaloneMode() {
-  return ('standalone' in window.navigator) && window.navigator.standalone;
-}
-
-/* ----------------- First load / UI state ----------------- */
-window.addEventListener("DOMContentLoaded", ()=>{
-  // Pre-create gentle hearts
-  for(let i=0;i<15;i++){
-    const heart=document.createElement("div");
-    heart.className="heart";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(5+Math.random()*7)+"s";
-    document.body.appendChild(heart);
-  }
-
-  if(localStorage.getItem("started") === "yes"){
-    document.getElementById("bottomNav").style.display="flex";
-    showPage('home');
-  }else{
-    document.getElementById("bottomNav").style.display="none";
-    document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
-    document.getElementById("getstart").classList.add("active");
-
-    // iOS: show A2HS guide
-    if(isIos() && !isInStandaloneMode()){
-      document.getElementById("iosGuide").style.display="block";
+    function showPage(id) {
+      document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
     }
-  }
-});
 
-/* ----------------- Navigation ----------------- */
-function showPage(pageId, btn){
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  document.getElementById(pageId).classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-}
+    function isInStandaloneMode() {
+      return (window.matchMedia('(display-mode: standalone)').matches) || (window.navigator.standalone);
+    }
 
-/* ----------------- Map Share/Copy ----------------- */
-const mapURL = "https://maps.app.goo.gl/4zCB3UtRHt4m7sj69";
-function copyMapLink() { navigator.clipboard.writeText(mapURL).then(()=>alert("Map link copied!")); }
-function shareMapLink() {
-  if(navigator.share){
-    navigator.share({title:"Wedding Map", text:"Check wedding location", url:mapURL});
-  }else{
-    alert("Browser does not support native share. Copy link instead.");
-  }
-}
+    // Loader → Page switch
+    if (isInStandaloneMode()) {
+      setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        showPage("home");
+      }, 2000);
+    } else {
+      document.getElementById("loader").style.display = "none";
+      showPage("getstart");
+    }
 
-/* ----------------- Tap hearts effect ----------------- */
-document.body.addEventListener("click", function(e){
-  const heart = document.createElement("div");
-  heart.className="heart";
-  heart.style.left = e.clientX - 9 + "px";
-  heart.style.top = e.clientY - 9 + "px";
-  heart.style.animationDuration = "1s";
-  heart.style.opacity = 1;
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),1000);
-});
+    // Detect iOS Safari
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
+    const isInSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-/* ----------------- PWA Install (Android/Desktop) ----------------- */
-let deferredPrompt;
-const installBtn = document.getElementById("installBtn");
-const installBtnFloat = document.getElementById("installBtnFloat");
+    // Android / Desktop Chrome → beforeinstallprompt
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
 
-// Show install buttons only after beforeinstallprompt fires (and not on iOS)
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  if(!isIos()){
-    installBtn.style.display="inline-block";
-    installBtnFloat.style.display="inline-block";
-  }
-});
+    installBtn.addEventListener("click", async () => {
+      if (isIOS && isInSafari) {
+        iosHint.classList.add("show");
+        return;
+      }
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const choice = await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        if (choice.outcome === "accepted") {
+          installBtn.disabled = true;
+          installBtn.innerText = "✅ Installed";
+        }
+      } else {
+        alert("Install not available on this browser ❌");
+      }
+    });
 
-// Click handlers for both install buttons
-async function triggerInstall() {
-  if(!deferredPrompt) return;
-  deferredPrompt.prompt();
-  const choice = await deferredPrompt.userChoice;
-  console.log("PWA install choice:", choice.outcome);
-  deferredPrompt = null;
-  installBtn.style.display="none";
-  installBtnFloat.style.display="none";
-}
-installBtn.addEventListener("click", triggerInstall);
-installBtnFloat.addEventListener("click", triggerInstall);
+    function closeIOSHint() {
+      iosHint.classList.remove("show");
+    }
 
-/* ----------------- Get Started ----------------- */
-document.getElementById("getStartBtn").addEventListener("click", async ()=>{
-  localStorage.setItem("started","yes");
-  document.getElementById("bottomNav").style.display="flex";
-  showPage('home');
-  // Optionally auto-prompt right after user gesture if available
-  if(deferredPrompt){
-    await triggerInstall();
-  }
-});
+    window.addEventListener("appinstalled", () => {
+      installBtn.disabled = true;
+      installBtn.innerText = "✅ Installed";
+    });
 
- // Register service worker
+    // Open Map function
+    function openMap() {
+      window.location.href = "https://maps.app.goo.gl/xxxx"; // 🔑 ដាក់ Google Maps Link នៅទីនេះ
+    }
+  </script>
+
+  <!-- Service Worker -->
+  <script>
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("./sw.js")
-        .then(() => console.log("Service Worker registered"))
-        .catch((err) => console.error("SW registration failed:", err));
+      navigator.serviceWorker.register("sw.js").then(() => {
+        console.log("Service Worker Registered ✅");
+      });
     }
-</script>
+  </script>
 </body>
 </html>
-
-
-
-
