@@ -10,22 +10,22 @@
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 
 <style>
-body {margin:0; font-family:-apple-system,Khmer OS Battambang,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif; background: linear-gradient(135deg,#ffe6f0,#fff5fa); overflow-x:hidden; display:flex; flex-direction:column; height:100vh; position:relative;}
+body {margin:0; font-family:-apple-system,Khmer OS Battambang,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif; background: linear-gradient(135deg,#ffffff,#ff4da6a9); overflow-x:hidden; display:flex; flex-direction:column; height:100vh; position:relative;}
 .heart::before { top:-9px; left:0; }
 .heart::after { left:-9px; top:0; }
 @keyframes floatUp { 0% { transform:translateY(100vh) scale(0.5) rotate(45deg); opacity:0; } 30% { opacity:1; } 100% { transform:translateY(-10vh) scale(1.2) rotate(45deg); opacity:0; } }
 
 
-.card { background:white; border-radius:20px; box-shadow:0 5px 15px rgba(0,0,0,0.1); padding:20px; margin-bottom:20px; transition: transform 0.2s ease; text-align:center; }
+.card { background:linear-gradient(45deg,#ff4d4d9d,#ff4da68f); border-radius:20px; box-shadow:0 5px 15px rgba(0,0,0,0.1); padding:20px; margin-bottom:20px; transition: transform 0.2s ease; text-align:center; }
 .card:hover { transform:translateY(-5px); }
-.card h2 { margin:10px 0 5px 0; color:#ff4da6; }
-.card p { color:#444; line-height:1.5; }
+.card h2 { margin:10px 0 5px 0; color:#fff0f0; }
+.card p { color:#ffffff; line-height:1.5; }
 .card img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:10px; border:3px solid #ffb6c1; }
 
 .btn {
   display: inline-block;
   padding: 12px 20px;
-  background: #f2a9a9;
+  background:linear-gradient(45deg,#ff4d4d,#ff4da6);
   color: white;
   border: none;
   border-radius: 30px;
@@ -41,10 +41,10 @@ body {margin:0; font-family:-apple-system,Khmer OS Battambang,"Segoe UI",Roboto,
 }
 
 .btn:hover {
-  background: #e43c92;
+  background:linear-gradient(45deg,#ffffff,#ff4da6);
 }
 
-.bottom-nav { position: fixed; bottom:0; left:0; width:100%; display:flex; justify-content: space-around; background: #ff4da6; padding:12px 0; border-top:1px solid #eee; box-shadow:0 -2px 8px rgba(0,0,0,0.1); z-index:999; }
+.bottom-nav { position: fixed; bottom:0; left:0; width:100%; display:flex; justify-content: space-around;   background:linear-gradient(45deg,#ff4d4d,#ff4da6); padding:12px 0; border-top:1px solid #eee; box-shadow:0 -2px 8px rgba(0,0,0,0.1); z-index:999; }
 .nav-btn { text-align:center; font-size:16px; color:#fffdfd; cursor:pointer; transition:0.3s; padding:6px 12px; border-radius:12px; position:relative; }
 .nav-btn.active { color:#f6be4c; font-weight:bold; text-shadow:0 0 8px rgba(255,77,166,0.7); }
 .nav-btn:hover::after { content:"💗"; position:absolute; top:-20px; left:50%; transform:translateX(-50%) scale(1); animation: hoverHeart 0.8s ease forwards; }
@@ -60,7 +60,7 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
 
 #loadingOverlay {
   position:fixed; top:0; left:0; width:100%; height:100%;
-  background: linear-gradient(135deg,#ffe6f0,#fff5fa);
+  background:linear-gradient(45deg,#ffffff,#ff4da6);
   display:flex; justify-content:center; align-items:center;
   z-index:2000;
   overflow:hidden;
@@ -111,11 +111,11 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
 .dark-card {
   position: relative;
   width: 90%;
-  max-width: 500px;
-  min-height: 600px;
+  max-width: 400px;
+  min-height: 650px;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgb(235, 197, 223);
+  box-shadow: 0 15px 15px rgb(251, 218, 218);
   background-image: url('https://img.freepik.com/free-photo/beautiful-wedding-ceremony-pathway-with-floral-arch-petals_23-2151978898.jpg?semt=ais_hybrid&w=740&q=80');
   background-size: cover;
   background-position: center;
@@ -251,7 +251,7 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
   position: absolute;
   width: 15px;
   height: 15px;
-  background: pink;
+ background:linear-gradient(45deg,#ff4d4d,#ff4da6);
   transform: rotate(45deg);
   border-radius: 2px;
   opacity: 0.8;
@@ -264,7 +264,7 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
   position: absolute;
   width: 15px;
   height: 15px;
-  background: pink;
+   background:linear-gradient(45deg,#ff4d4d,#ff4da6);
   border-radius: 50%;
 }
 .heart-bubble::before { top: -7.5px; left: 0; }
@@ -282,7 +282,7 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
   font-size: 22px;
   font-weight: bold;
   color: white;
-  background: linear-gradient(45deg, #ff4da6, #ff4da6, #ff4da6);
+    background:linear-gradient(45deg,#ff4d4d,#ff4da6);
   padding: 12px;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(255, 77, 166, 0.6);
@@ -309,7 +309,7 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
   position: absolute;
   top: -30px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #ffffff, #ec9595);
+  background:linear-gradient(45deg,#ffffff,#ff4da6);
   box-shadow: inset -3px -3px 8px rgba(255, 255, 255, 0.4),
               inset 3px 3px 8px rgba(0, 0, 0, 0.2),
               0 0 12px rgba(255, 255, 255, 0.6);
@@ -324,7 +324,7 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
   left: 50%;
   width: 6px;
   height: 6px;
-  background: #ff80bf;
+  background:linear-gradient(45deg,#ffffff,#ff4da6);
   border-radius: 50%;
   opacity: 0;
   transform: translate(-50%, -50%) scale(0);
@@ -370,26 +370,26 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
   }
 }
 
-.chat-button { position: fixed; bottom:150px; right:20px; background:#ee809c; border:none; border-radius:50%; width:60px; height:60px; font-size:24px; cursor:pointer; color:white; box-shadow:0 0 15px rgba(255,77,166,0.6); z-index:999; animation:pulse 3s infinite, bounce 3s infinite; }
+.chat-button { position: fixed; bottom:150px; right:20px;   background:linear-gradient(45deg,#ff4d4d,#ff4da6); border:none; border-radius:50%; width:60px; height:60px; font-size:24px; cursor:pointer; color:white; box-shadow:0 0 15px rgba(255,77,166,0.6); z-index:999; animation:pulse 1s infinite, bounce 1s infinite; }
   @keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
   @keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-  .bot-floating { position:fixed; bottom:210px; right:30px; background:#ee809c; color:#ffffff; padding:6px 14px; border-radius:18px; font-size:14px; box-shadow:0 4px 10px rgba(0,0,0,0.15); opacity:0; transform:translateY(10px); transition: all 0.6s ease; z-index:1000; white-space:nowrap; }
+  .bot-floating { position:fixed; bottom:210px; right:30px; background:#f3d6de; color:#fe8d8d; padding:6px 14px; border-radius:18px; font-size:14px; box-shadow:0 4px 10px rgba(0,0,0,0.15); opacity:0; transform:translateY(10px); transition: all 2s ease; z-index:1000; white-space:nowrap; }
   .bot-floating.show { opacity:1; transform:translateY(0); }
   .modal { display:none; position:fixed; z-index:10000; left:0;top:0;width:100%;height:100%; background:rgba(0,0,0,0.5);}
-  .modal-content { background:#fff; margin:10% auto; padding:20px; width:90%; max-width:450px; border-radius:16px; text-align:center; position:relative; animation:popIn 0.3s ease; }
+  .modal-content { background:linear-gradient(45deg,#ffffff,#ff4da6); margin:10% auto; padding:20px; width:90%; max-width:450px; border-radius:16px; text-align:center; position:relative; animation:popIn 0.3s ease; }
   @keyframes popIn { from{transform:scale(0.5);opacity:0;} to{transform:scale(1);opacity:1;}}
-  .close {position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer; color:#888;}
-  h3{margin-bottom:15px;color:#ee809c;}
+  .close {position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer; color:#ffffff;}
+  h3{margin-bottom:15px;color:#ffffff;}
   .contact-options { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:30px;}
-  .contact-options button { background:linear-gradient(45deg,#ee809c,#ee809c); color:white; border:none; padding:10px 16px; border-radius:20px; cursor:pointer; font-size:14px; font-weight:bold; box-shadow:0 4px 12px rgba(255,77,166,0.4); transition: all 0.3s ease;}
+  .contact-options button {  background:linear-gradient(45deg,#ff4d4d,#ff4da6);; color:white; border:none; padding:10px 16px; border-radius:20px; cursor:pointer; font-size:14px; font-weight:bold; box-shadow:0 4px 12px rgba(255,77,166,0.4); transition: all 3s ease;}
   .contact-options button:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 6px 18px rgba(255,77,166,0.6);}
   .contact-options button:active { transform:scale(0.95); }
-  .contact-number { margin-top:15px; display:inline-block; padding:15px 25px; border-radius:50px; background:#ff4da6; color:#fff; font-weight:bold; font-size:18px; box-shadow:0 0 15px rgba(255,77,166,0.6),0 0 30px rgba(255,77,166,0.3); opacity:0; transform:translateY(20px) scale(0.9); transition:all 0.6s ease; min-width:200px; }
+  .contact-number { margin-top:15px; display:inline-block; padding:15px 25px; border-radius:50px;   background:linear-gradient(45deg,#ff4d4d,#ff4da6); color:#fff; font-weight:bold; font-size:18px; box-shadow:0 0 15px rgba(255,77,166,0.6),0 0 30px rgba(255,77,166,0.3); opacity:0; transform:translateY(20px) scale(0.9); transition:all 3s ease; min-width:200px; }
   .contact-number.show { opacity:1; transform:translateY(0) scale(1); animation:glowPulse 1.5s infinite; }
   @keyframes glowPulse {0%{box-shadow:0 0 10px rgba(255,77,166,0.5),0 0 20px rgba(255,77,166,0.3);}50%{box-shadow:0 0 25px rgba(255,77,166,0.9),0 0 40px rgba(255,77,166,0.6);}100%{box-shadow:0 0 10px rgba(255,77,166,0.5),0 0 20px rgba(255,77,166,0.3);}}
-  .social-buttons { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:15px; opacity:0; transition:opacity 0.5s ease; }
+  .social-buttons { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:15px; opacity:0; transition:opacity 3s ease; }
   .social-buttons.show { opacity:1; }
-  .social-buttons button { color:white; border:none; padding:10px 16px; border-radius:25px; cursor:pointer; font-size:14px; font-weight:bold; transition: all 0.3s ease; }
+  .social-buttons button { color:white; border:none; padding:10px 16px; border-radius:25px; cursor:pointer; font-size:14px; font-weight:bold; transition: all 3s ease; }
   .social-buttons button:hover { transform:translateY(-3px) scale(1.05); }
   .telegram { background:linear-gradient(45deg,#0088cc,#00bfff); }
   .facebook { background:linear-gradient(45deg,#1877f2,#3b5998); }
@@ -431,7 +431,7 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
   </div>
 
 <button id="chatBtn" class="chat-button">💬</button>
-<div id="botFloating" class="bot-floating">ខ្ញុំអាចជួយអ្នកបាន 💬</div>
+<div id="botFloating" class="bot-floating">ខ្ញុំអាចជួយអ្នកបាន...</div>
 
 <div id="chatModal" class="modal">
   <div class="modal-content">
@@ -479,32 +479,29 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
  
     </div>
   </div>
+  
 </div>
 
   <div id="map" class="view">
      
-       <div class="card"></div>
-        <h4>ការបរិច្ចេកថ្ងៃនេះ</h4>
-          <div class="card">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3905.5730312067944!2d105.375636!3d11.795083999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDQ3JzQyLjMiTiAxMDXCsDIyJzMyLjMiRQ!5e0!3m2!1sen!2skh!4v1755935216345!5m2!1sen!2skh" allowfullscreen="" loading="lazy"></iframe>
-           <button class="btn" onclick="copyMapLink()">ចម្លងទីតាង</button>
-      <button class="btn" onclick="shareMapLink()">🔗 ចែករំលែក</button>
      
+    
+  <div> 
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3905.5730312067944!2d105.375636!3d11.795083999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDQ3JzQyLjMiTiAxMDXCsDIyJzMyLjMiRQ!5e0!3m2!1sen!2skh!4v1755935216345!5m2!1sen!2skh" allowfullscreen="" loading="lazy"></iframe>
+      
+       
   </div>
-  
+   <div class="card">     
+    <button class="btn" onclick="copyMapLink()">ចម្លងទីតាង</button>
+    <button class="btn" onclick="shareMapLink()">🔗 ចែករំលែក</button>
+  </div>
     <div class="card">
     
-     
- 
     <p>ភូមិ ព្រៃលាន ឃុំ រំលេច ស្រុក ស្រុកស៊ីធរកណ្តាល ខេត្តព្រៃវែង</p>
     <p> កម្មវិធីនៅ ថ្ងៃចន្ទ ១៣ កើត ខែកត្តិក ឆ្នាំម្សាញ់ សប្តស័ក ពុទ្ធសករាជ ២៥៦៩ ត្រូវនឹងថ្ងៃទី៣ ខែវិច្ឆិកា ឆ្នាំ២០២៥</p>
     <!-- Back button -->
   
-  </div>
-    
-    <div class="card">
-     
-    </div>
+   </div>
   </div>
 
   <div id="son" class="view">
@@ -614,35 +611,18 @@ function showPage(pageId, btn){
 
 // ---------- Map ----------
 
-const mapURL = "https://maps.app.goo.gl/4zCB3UtRHt4m7sj69";  
-
-// ព័ត៍មានពិធី
-const weddingInfo = 
-`💒 ពិធីមង្គលការ
-
-📍 ភូមិ ព្រៃលាន ឃុំ រំលេច
-   ស្រុក ស៊ីធរកណ្តាល ខេត្តព្រៃវែង
-
-📅 ថ្ងៃចន្ទ ១៣ កើត ខែកត្តិក ឆ្នាំម្សាញ់ សប្តស័ក
-   ពុទ្ធសករាជ ២៥៦៩
-   ត្រូវនឹង ថ្ងៃទី ៣ ខែវិច្ឆិកា ឆ្នាំ ២០២៥`;
-
-function shareMapLink() {
-  if (navigator.share) {
-    navigator.share({
-      title: "Wedding Map 💒",
-      text: weddingInfo,
-      url: mapURL
-    })
-    .catch(err => console.log("Share cancelled:", err));
-  } else {
-    alert("Browser does not support native share.");
-  }
-}
+const mapURL = "https://maps.app.goo.gl/4zCB3UtRHt4m7sj69";
+function copyMapLink() { navigator.clipboard.writeText(mapURL).then(()=>alert("Map link copied!")); }
+function shareMapLink() { if(navigator.share){ navigator.share({title:"Wedding Map", text:"Check wedding location", url:mapURL}); } else { alert("Browser does not support native share."); } }
 
 
 // ---------- Service Worker ----------
 if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js').then(()=>console.log("SW registered")); }
+
+
+// Floating hearts from bottom
+
+
 </script>
 <script>
 const chatBtn=document.getElementById("chatBtn");
@@ -653,7 +633,7 @@ closeBtn.onclick=()=>chatModal.style.display="none";
 window.onclick=(e)=>{if(e.target==chatModal)chatModal.style.display="none";}
 
 const botFloating=document.getElementById("botFloating");
-setInterval(()=>{botFloating.classList.add("show"); setTimeout(()=>botFloating.classList.remove("show"),2500);},5000);
+setInterval(()=>{botFloating.classList.add("show"); setTimeout(()=>botFloating.classList.remove("show"),4000);},8000);
 
 // Define links for each person
 const contacts = {
@@ -679,8 +659,41 @@ function showContact(person){
   const socialRow=document.getElementById("socialButtons");
   socialRow.classList.remove("show"); void socialRow.offsetWidth; socialRow.classList.add("show");
 }
-</script>
 
+
+
+
+
+</script>
+<script>
+const container = document.querySelector('.hearts-container');
+
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'floating-heart';
+  heart.style.left = Math.random() * 100 + '%';
+  heart.style.animationDuration = (2 + Math.random() * 2) + 's';
+  container.appendChild(heart);
+  setTimeout(() => heart.remove(), 3000);
+}
+
+setInterval(createHeart, 300);
+// Heart bubbles under dark-card
+const card = document.querySelector('.dark-card');
+setInterval(() => {
+  const heart = document.createElement('div');
+  heart.className = 'heart-bubble';
+  // ចាប់ random horizontal position នៅក្រោម card
+  heart.style.left = Math.random() * card.offsetWidth + 'px';
+  // ចាប់ vertical ចាប់ពី bottom
+  heart.style.top = card.offsetHeight + 'px';
+  card.appendChild(heart);
+  // Remove after animation
+  setTimeout(() => heart.remove(), 3000);
+}, 300); // បេះដូងថ្មីរៀងរាល់ 0.3s
+
+</script>
+ 
 
 </body>
 </html>
