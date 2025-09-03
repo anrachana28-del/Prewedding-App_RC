@@ -22,8 +22,27 @@ body {margin:0; font-family:-apple-system,Khmer OS Battambang,"Segoe UI",Roboto,
 .card p { color:#444; line-height:1.5; }
 .card img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:10px; border:3px solid #ffb6c1; }
 
-.btn { display:inline-block; padding:12px 10px; left:12px; background:#ff4da6; color:white; border:none; border-radius:30px; font-size:16px; cursor:pointer; overflow:hidden; position:relative; transition:0.3s;}
-.btn:hover { background:#ff4da6; }
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #f2a9a9;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: 0.3s;
+
+  float: left;       /* ប៊ូតុងនៅខាងឆ្វេង */
+  margin-left: 12px; /* ចន្លោះពីខាងឆ្វេង */
+  margin-top: 10px;  /* ចន្លោះខាងលើបើចាំបាច់ */
+}
+
+.btn:hover {
+  background: #e43c92;
+}
 
 .bottom-nav { position: fixed; bottom:0; left:0; width:100%; display:flex; justify-content: space-around; background: #ff4da6; padding:12px 0; border-top:1px solid #eee; box-shadow:0 -2px 8px rgba(0,0,0,0.1); z-index:999; }
 .nav-btn { text-align:center; font-size:16px; color:#fffdfd; cursor:pointer; transition:0.3s; padding:6px 12px; border-radius:12px; position:relative; }
@@ -264,18 +283,18 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
   font-weight: bold;
   color: white;
   background: linear-gradient(45deg, #ff4da6, #ff4da6, #ff4da6);
-  padding: 15px;
-  border-radius: 15px;
+  padding: 12px;
+  border-radius: 12px;
   box-shadow: 0 0 15px rgba(255, 77, 166, 0.6);
   overflow: hidden;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   overflow: visible;
+
 }
 
-/* bubble container */
 .bubbles {
   position: absolute;
   top: 0;
@@ -351,18 +370,18 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
   }
 }
 
-.chat-button { position: fixed; bottom:70px; right:20px; background:#ff4da6; border:none; border-radius:50%; width:55px; height:55px; font-size:20px; cursor:pointer; color:white; box-shadow:0 0 15px rgba(255,77,166,0.6); z-index:999; animation:pulse 3s infinite, bounce 3s infinite; }
+.chat-button { position: fixed; bottom:150px; right:20px; background:#ee809c; border:none; border-radius:50%; width:60px; height:60px; font-size:24px; cursor:pointer; color:white; box-shadow:0 0 15px rgba(255,77,166,0.6); z-index:999; animation:pulse 3s infinite, bounce 3s infinite; }
   @keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
   @keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-  .bot-floating { position:fixed; bottom:120px; right:30px; background:#ffe6f2; color:#ff1a8c; padding:6px 14px; border-radius:18px; font-size:14px; box-shadow:0 4px 10px rgba(0,0,0,0.15); opacity:0; transform:translateY(10px); transition: all 0.6s ease; z-index:1000; white-space:nowrap; }
+  .bot-floating { position:fixed; bottom:210px; right:30px; background:#ee809c; color:#ffffff; padding:6px 14px; border-radius:18px; font-size:14px; box-shadow:0 4px 10px rgba(0,0,0,0.15); opacity:0; transform:translateY(10px); transition: all 0.6s ease; z-index:1000; white-space:nowrap; }
   .bot-floating.show { opacity:1; transform:translateY(0); }
   .modal { display:none; position:fixed; z-index:10000; left:0;top:0;width:100%;height:100%; background:rgba(0,0,0,0.5);}
   .modal-content { background:#fff; margin:10% auto; padding:20px; width:90%; max-width:450px; border-radius:16px; text-align:center; position:relative; animation:popIn 0.3s ease; }
   @keyframes popIn { from{transform:scale(0.5);opacity:0;} to{transform:scale(1);opacity:1;}}
   .close {position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer; color:#888;}
-  h3{margin-bottom:15px;color:#ff1a8c;}
+  h3{margin-bottom:15px;color:#ee809c;}
   .contact-options { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:30px;}
-  .contact-options button { background:linear-gradient(45deg,#ff4da6,#ff1a8c); color:white; border:none; padding:10px 16px; border-radius:20px; cursor:pointer; font-size:14px; font-weight:bold; box-shadow:0 4px 12px rgba(255,77,166,0.4); transition: all 0.3s ease;}
+  .contact-options button { background:linear-gradient(45deg,#ee809c,#ee809c); color:white; border:none; padding:10px 16px; border-radius:20px; cursor:pointer; font-size:14px; font-weight:bold; box-shadow:0 4px 12px rgba(255,77,166,0.4); transition: all 0.3s ease;}
   .contact-options button:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 6px 18px rgba(255,77,166,0.6);}
   .contact-options button:active { transform:scale(0.95); }
   .contact-number { margin-top:15px; display:inline-block; padding:15px 25px; border-radius:50px; background:#ff4da6; color:#fff; font-weight:bold; font-size:18px; box-shadow:0 0 15px rgba(255,77,166,0.6),0 0 30px rgba(255,77,166,0.3); opacity:0; transform:translateY(20px) scale(0.9); transition:all 0.6s ease; min-width:200px; }
@@ -391,6 +410,7 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
 </div>
 
 <div class="app-header">
+  
   សិរី សួស្តី អាពាហ៍ពិពាហ៍
   <div class="bubbles">
     <span></span><span></span><span></span><span></span>
@@ -453,22 +473,38 @@ iframe { width:100%; height:300px; border-radius:15px; border:0; }
       <h4 class="glow-text" data-text="កូនស្រី">កូនស្រី</h4>
 
       <p class=""> ទីតាងរោងការនៅ ភូមិ ព្រៃលាន ឃុំ រំលេច ស្រុក ស្រុកស៊ីធរកណ្តាល ខេត្តព្រៃវែង</p>
-      <p class="">នៅថ្ងៃ អង្ការ៍ ទី ០៣ ខែ វិច្ចការ ឆ្នាំ២០២៥</p>
+      <p class="">ថ្ងៃចន្ទ ១៣ កើត ខែកត្តិក ឆ្នាំម្សាញ់ សប្តស័ក ពុទ្ធសករាជ ២៥៦៩ ត្រូវនឹងថ្ងៃទី៣ ខែវិច្ឆិកា ឆ្នាំ២០២៥</p>
+
+      
  
     </div>
   </div>
 </div>
 
   <div id="map" class="view">
-    
-    <h2 style="text-align:center; color:#c71585;">ទីតាំងពិធីមង្គលការ</h2>
+     
+       <div class="card"></div>
+        <h4>ការបរិច្ចេកថ្ងៃនេះ</h4>
+          <div class="card">
     <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3905.5730312067944!2d105.375636!3d11.795083999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDQ3JzQyLjMiTiAxMDXCsDIyJzMyLjMiRQ!5e0!3m2!1sen!2skh!4v1755935216345!5m2!1sen!2skh" allowfullscreen="" loading="lazy"></iframe>
-    <div style="text-align:center; margin-top:10px;">
-      <button class="btn" onclick="copyMapLink()">📋 Copy Link</button>
-      <button class="btn" onclick="shareMapLink()">🔗 Share Link</button>
-    </div>
+           <button class="btn" onclick="copyMapLink()">ចម្លងទីតាង</button>
+      <button class="btn" onclick="shareMapLink()">🔗 ចែករំលែក</button>
+     
+  </div>
+  
     <div class="card">
-      <p>ភូមិ ព្រៃលាន ឃុំ រំលេច ស្រុក ស្រុកស៊ីធរកណ្តាល ខេត្តព្រៃវែង</p>
+    
+     
+ 
+    <p>ភូមិ ព្រៃលាន ឃុំ រំលេច ស្រុក ស្រុកស៊ីធរកណ្តាល ខេត្តព្រៃវែង</p>
+    <p> កម្មវិធីនៅ ថ្ងៃចន្ទ ១៣ កើត ខែកត្តិក ឆ្នាំម្សាញ់ សប្តស័ក ពុទ្ធសករាជ ២៥៦៩ ត្រូវនឹងថ្ងៃទី៣ ខែវិច្ឆិកា ឆ្នាំ២០២៥</p>
+    <!-- Back button -->
+  
+  </div>
+     <h4>ការបរិច្ចេកថ្ងៃនេះ</h4>
+    <iframe src="https://khmer-lunar-calendar.com/" title="Khmer Lunar Calendar"></iframe>
+    <div class="card">
+     
     </div>
   </div>
 
@@ -578,9 +614,33 @@ function showPage(pageId, btn){
 }
 
 // ---------- Map ----------
-const mapURL = "https://maps.app.goo.gl/4zCB3UtRHt4m7sj69";
-function copyMapLink() { navigator.clipboard.writeText(mapURL).then(()=>alert("Map link copied!")); }
-function shareMapLink() { if(navigator.share){ navigator.share({title:"Wedding Map", text:"Check wedding location", url:mapURL}); } else { alert("Browser does not support native share."); } }
+
+const mapURL = "https://maps.app.goo.gl/4zCB3UtRHt4m7sj69";  
+
+// ព័ត៍មានពិធី
+const weddingInfo = 
+`💒 ពិធីមង្គលការ
+
+📍 ភូមិ ព្រៃលាន ឃុំ រំលេច
+   ស្រុក ស៊ីធរកណ្តាល ខេត្តព្រៃវែង
+
+📅 ថ្ងៃចន្ទ ១៣ កើត ខែកត្តិក ឆ្នាំម្សាញ់ សប្តស័ក
+   ពុទ្ធសករាជ ២៥៦៩
+   ត្រូវនឹង ថ្ងៃទី ៣ ខែវិច្ឆិកា ឆ្នាំ ២០២៥`;
+
+function shareMapLink() {
+  if (navigator.share) {
+    navigator.share({
+      title: "Wedding Map 💒",
+      text: weddingInfo,
+      url: mapURL
+    })
+    .catch(err => console.log("Share cancelled:", err));
+  } else {
+    alert("Browser does not support native share.");
+  }
+}
+
 
 // ---------- Service Worker ----------
 if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js').then(()=>console.log("SW registered")); }
@@ -621,5 +681,13 @@ function showContact(person){
   socialRow.classList.remove("show"); void socialRow.offsetWidth; socialRow.classList.add("show");
 }
 </script>
+<script>
+    function openPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
+ 
+
 </body>
 </html>
